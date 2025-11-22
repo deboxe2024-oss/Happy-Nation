@@ -8,10 +8,12 @@ export function Hero() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <div className="flex flex-col items-center justify-center space-y-4 text-center lg:items-start lg:text-left">
-            <div className="w-full max-w-md h-64 bg-muted rounded-lg flex items-center justify-center mb-6 shadow-inner">
-              <p className="text-muted-foreground">
-                Espaço reservado para o vídeo de vendas (VSL)
-              </p>
+            <div className="w-full max-w-md bg-muted rounded-lg overflow-hidden mb-6 shadow-inner">
+              <video
+                src="https://nwuievvpcjrmecujwfox.supabase.co/storage/v1/object/public/media/0.9390433012946207.mp4"
+                controls
+                className="w-full"
+              />
             </div>
 
             <h1 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
@@ -38,11 +40,11 @@ export function Hero() {
           </div>
           <div className="relative h-[300px] w-full lg:h-auto rounded-xl overflow-hidden shadow-2xl">
             <Image
-              src="https://nwuievvpcjrmecujwfox.supabase.co/storage/v1/object/public/media/0.7492676914349277.jpg"
-              alt="Crianças orando e lendo a Bíblia juntas em um campo iluminado"
+              src="https://nwuievvpcjrmecujwfox.supabase.co/storage/v1/object/public/media/0.5996308446213416.png"
+              alt="Capa do devocional infantil 'Caminhando com Jesus'"
               layout="fill"
               objectFit="cover"
-              data-ai-hint="children praying"
+              data-ai-hint="devotional cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
           </div>
