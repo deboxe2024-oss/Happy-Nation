@@ -30,10 +30,10 @@ function SubmitButton() {
 
 export function AiDemo() {
   const { toast } = useToast();
-  const [state, formAction, isPending] = useActionState(adaptContentAction, { message: '' });
+  const [state, formAction, isPending] = useActionState(adaptContentAction, null);
 
   useEffect(() => {
-    if (state.message && !state.adaptedContent) {
+    if (state?.message && !state?.adaptedContent) {
       toast({
         variant: "destructive",
         title: "Erro na Adaptação",

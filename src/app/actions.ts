@@ -21,7 +21,7 @@ type State = {
   }
 }
 
-export async function adaptContentAction(prevState: State, formData: FormData): Promise<State> {
+export async function adaptContentAction(prevState: State | null, formData: FormData): Promise<State> {
   const validatedFields = schema.safeParse({
     bibleVerse: formData.get('bibleVerse'),
     reflection: formData.get('reflection'),
