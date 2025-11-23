@@ -33,7 +33,13 @@ export function AiDemo() {
   const [state, formAction, isPending] = useActionState(adaptContentAction, null);
 
   useEffect(() => {
-    if (state?.message && !state?.adaptedContent) {
+    if (state?.message && !state?.adaptedContent && state.errors) {
+      toast({
+        variant: "destructive",
+        title: "Erro de Validação",
+        description: state.message,
+      });
+    } else if (state?.message && !state?.adaptedContent) {
       toast({
         variant: "destructive",
         title: "Erro na Adaptação",
