@@ -12,7 +12,7 @@ export function Header() {
           </span>
         </a>
         <Button asChild>
-          <a href="#cta">Quero o Devocional</a>
+          <a href="https://pay.kirvano.com/f07f15f9-4161-4482-a8f7-e05a89087f08">Quero o Devocional</a>
         </Button>
       </div>
     </header>

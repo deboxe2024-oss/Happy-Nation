@@ -25,7 +25,7 @@ export function Product() {
               </p>
             </div>
             <Button size="lg" asChild className="mx-auto lg:mx-0 w-fit">
-              <a href="#cta">Quero começar os 30 dias com Jesus</a>
+              <a href="https://pay.kirvano.com/f07f15f9-4161-4482-a8f7-e05a89087f08">Quero começar os 30 dias com Jesus</a>
             </Button>
           </div>
         </div>

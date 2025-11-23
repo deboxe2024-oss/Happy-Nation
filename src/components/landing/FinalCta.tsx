@@ -22,7 +22,7 @@ export function FinalCta() {
         </p>
         <div className="flex flex-col items-center gap-4">
           <Button size="lg" asChild variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold">
-            <a href="#">Começar agora — Quero o devocional</a>
+            <a href="https://pay.kirvano.com/f07f15f9-4161-4482-a8f7-e05a89087f08">Começar agora — Quero o devocional</a>
           </Button>
           <Badge variant="secondary">Entrega imediata + Bônus incluídos</Badge>
         </div>
