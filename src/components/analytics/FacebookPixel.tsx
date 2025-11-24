@@ -1,10 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation';
-import Script from 'next/script';
-import { useEffect, useState } from 'react';
-
-const PIXEL_ID = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID;
+import { useEffect } from 'react';
 
 declare global {
   interface Window {
@@ -13,34 +10,18 @@ declare global {
 }
 
 const FacebookPixel = () => {
-  const [loaded, setLoaded] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    if (loaded) {
+    // This hook is for tracking SPA route changes.
+    // The initial PageView is fired in layout.tsx.
+    if (typeof window.fbq === 'function') {
       window.fbq('track', 'PageView');
     }
-  }, [pathname, loaded]);
+  }, [pathname]);
 
-  if (!PIXEL_ID) {
-    return null;
-  }
 
-  return (
-    <>
-      <Script
-        id="fb-pixel-base"
-        src="https://connect.facebook.net/en_US/fbevents.js"
-        strategy="afterInteractive"
-        onLoad={() => {
-          window.fbq=window.fbq||function(){(window.fbq.q=window.fbq.q||[]).push(arguments)};
-          window.fbq.l=+new Date;
-          window.fbq('init', PIXEL_ID);
-          setLoaded(true);
-        }}
-      />
-    </>
-  );
+  return null;
 };
 
 export default FacebookPixel;
