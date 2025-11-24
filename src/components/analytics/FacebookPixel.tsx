@@ -17,17 +17,15 @@ const FacebookPixel = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (!PIXEL_ID) {
-        console.warn('Facebook Pixel ID is not set. Please set NEXT_PUBLIC_FACEBOOK_PIXEL_ID in your .env.local file');
-        return;
+    if (PIXEL_ID) {
+        setLoaded(true);
     }
-    setLoaded(true);
   }, []);
 
   useEffect(() => {
     if (!loaded) return;
     
-    // For route changes in a Single Page Application
+    // Track PageView on route changes
     window.fbq?.('track', 'PageView');
     
   }, [pathname, loaded]);
@@ -41,6 +39,11 @@ const FacebookPixel = () => {
       <Script
         id="fb-pixel-sdk"
         strategy="afterInteractive"
+        onLoad={() => {
+          if (window.fbq) {
+            window.fbq('track', 'ViewContent');
+          }
+        }}
         dangerouslySetInnerHTML={{
           __html: `
             !function(f,b,e,v,n,t,s)
@@ -53,7 +56,6 @@ const FacebookPixel = () => {
             'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '${PIXEL_ID}');
             fbq('track', 'PageView');
-            fbq('track', 'ViewContent');
           `,
         }}
       />
