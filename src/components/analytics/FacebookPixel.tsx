@@ -28,12 +28,17 @@ const FacebookPixel = () => {
     if (!loaded || !PIXEL_ID) {
       return;
     }
+    // O evento PageView inicial já é disparado pelo script de inicialização.
+    // Este useEffect dispara eventos PageView adicionais em mudanças de rota.
+    // Para evitar duplicidade na primeira carga, podemos verificar se o fbq já foi chamado antes.
+    // No entanto, o comportamento padrão do script já faz isso.
+    // A chamada 'ViewContent' pode ser mais apropriada para navegações SPA.
     window.fbq('track', 'PageView');
     window.fbq('track', 'ViewContent');
 
   }, [pathname, loaded]);
   
-  if (!loaded) {
+  if (!PIXEL_ID || !loaded) {
     return null;
   }
 
