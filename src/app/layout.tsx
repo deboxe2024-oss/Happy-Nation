@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
 import { Toaster } from "@/components/ui/toaster";
 import './globals.css';
-import FacebookPixel from '@/components/analytics/FacebookPixel';
 import { Suspense } from 'react';
-import Script from 'next/script';
 
 const PIXEL_ID = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID;
 
@@ -41,11 +39,18 @@ export default function RootLayout({
             }}
           />
         )}
+        {PIXEL_ID && (
+            <noscript>
+                <img
+                    height="1"
+                    width="1"
+                    style={{ display: 'none' }}
+                    src={`https://www.facebook.com/tr?id=${PIXEL_ID}&ev=PageView&noscript=1`}
+                />
+            </noscript>
+        )}
       </head>
       <body className="font-body antialiased">
-        <Suspense fallback={null}>
-            <FacebookPixel />
-        </Suspense>
         {children}
         <Toaster />
       </body>
