@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import './globals.css';
 import { Suspense } from 'react';
 
-const PIXEL_ID = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID;
+const PIXEL_ID = '864294432931331';
 
 export const metadata: Metadata = {
   title: 'Caminhando Com Jesus',
