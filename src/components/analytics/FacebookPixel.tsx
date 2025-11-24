@@ -18,34 +18,28 @@ const FacebookPixel = () => {
 
   useEffect(() => {
     if (!PIXEL_ID) {
-        console.warn('Facebook Pixel ID is not set.');
+        console.warn('Facebook Pixel ID is not set. Please set NEXT_PUBLIC_FACEBOOK_PIXEL_ID in your .env.local file');
         return;
     }
     setLoaded(true);
   }, []);
 
   useEffect(() => {
-    if (!loaded || !PIXEL_ID) {
-      return;
-    }
-    // O evento PageView inicial já é disparado pelo script de inicialização.
-    // Este useEffect dispara eventos PageView adicionais em mudanças de rota.
-    // Para evitar duplicidade na primeira carga, podemos verificar se o fbq já foi chamado antes.
-    // No entanto, o comportamento padrão do script já faz isso.
-    // A chamada 'ViewContent' pode ser mais apropriada para navegações SPA.
-    window.fbq('track', 'PageView');
-    window.fbq('track', 'ViewContent');
-
+    if (!loaded) return;
+    
+    // For route changes in a Single Page Application
+    window.fbq?.('track', 'PageView');
+    
   }, [pathname, loaded]);
-  
-  if (!PIXEL_ID || !loaded) {
+
+  if (!loaded) {
     return null;
   }
 
   return (
     <>
       <Script
-        id="fb-pixel"
+        id="fb-pixel-sdk"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
@@ -59,6 +53,7 @@ const FacebookPixel = () => {
             'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '${PIXEL_ID}');
             fbq('track', 'PageView');
+            fbq('track', 'ViewContent');
           `,
         }}
       />
