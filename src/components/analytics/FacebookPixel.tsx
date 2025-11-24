@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Script from 'next/script';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 const PIXEL_ID = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID;
 
@@ -13,24 +13,18 @@ declare global {
 }
 
 const FacebookPixel = () => {
-  const [loaded, setLoaded] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    if (PIXEL_ID) {
-        setLoaded(true);
+    if (!PIXEL_ID) return;
+    // This is to ensure the fbq function is available for subsequent page views
+    // after the initial script load.
+    if (window.fbq) {
+      window.fbq('track', 'PageView');
     }
-  }, []);
+  }, [pathname]);
 
-  useEffect(() => {
-    if (!loaded) return;
-    
-    // Track PageView on route changes
-    window.fbq?.('track', 'PageView');
-    
-  }, [pathname, loaded]);
-
-  if (!loaded) {
+  if (!PIXEL_ID) {
     return null;
   }
 
@@ -39,11 +33,6 @@ const FacebookPixel = () => {
       <Script
         id="fb-pixel-sdk"
         strategy="afterInteractive"
-        onLoad={() => {
-          if (window.fbq) {
-            window.fbq('track', 'ViewContent');
-          }
-        }}
         dangerouslySetInnerHTML={{
           __html: `
             !function(f,b,e,v,n,t,s)
