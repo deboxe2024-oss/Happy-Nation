@@ -18,7 +18,7 @@ export function FinalCta() {
           Plante hoje uma semente de fé no coração deles
         </h2>
         <p className="mx-auto max-w-[700px] text-foreground/80 md:text-xl my-6">
-          Comece 30 dias que podem transformar sua família. Clique agora e tenha acesso ao devocional completo por apenas R$ 29,90.
+          Comece 30 dias que podem transformar sua família. Clique agora e tenha acesso ao devocional completo por apenas R$ 49,90.
         </p>
         <div className="flex flex-col items-center gap-4">
           <Button size="lg" asChild variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold">

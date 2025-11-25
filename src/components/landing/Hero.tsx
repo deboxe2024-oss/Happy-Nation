@@ -26,7 +26,7 @@ export function Hero() {
                <Button size="lg" variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
                 <a href="https://pay.kirvano.com/f07f15f9-4161-4482-a8f7-e05a89087f08">
                   <Download className="mr-2 h-5 w-5" />
-                  Baixar agora — Apenas R$ 29,90
+                  Baixar agora — Apenas R$ 49,90
                 </a>
               </Button>
             </div>
