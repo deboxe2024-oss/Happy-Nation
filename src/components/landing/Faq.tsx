@@ -15,6 +15,10 @@ const faqItems = [
     answer: "Sim! O conteúdo, incluindo os versículos e reflexões, é adaptado com a ajuda de inteligência artificial para ser simples, envolvente e fácil de entender por crianças de várias idades.",
   },
   {
+    question: "O devocional oferece certificado?",
+    answer: "Sim! Ao final dos 30 dias, você recebe um certificado de conclusão do mini curso 'Caminhando Com Jesus', válido em todo o território nacional. É um lindo reconhecimento da jornada de fé da sua família.",
+  },
+  {
     question: "Preciso ter experiência prévia?",
     answer: "Absolutamente não. O guia é completo e fácil de seguir, mesmo para pais que não têm experiência em liderar devocionais. É uma ferramenta para todos.",
   },

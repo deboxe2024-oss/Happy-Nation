@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Download, ShieldCheck } from "lucide-react";
+import { Download, ShieldCheck, Award } from "lucide-react";
 
 export function Hero() {
   return (
@@ -20,7 +20,7 @@ export function Hero() {
               Transforme 10 minutos por dia em um encontro com Jesus
             </h1>
             <p className="max-w-[700px] text-foreground/80 md:text-xl">
-              Devocional ilustrado de 30 dias para fortalecer a fé em família, com reflexões curtas, orações e atividades divertidas.
+              Mini curso em formato de devocional ilustrado de 30 dias para fortalecer a fé em família, com reflexões curtas, orações, atividades e certificado de conclusão.
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-4">
                <Button size="lg" variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
@@ -34,6 +34,10 @@ export function Hero() {
                 <div className="flex items-center gap-2">
                     <ShieldCheck className="h-4 w-4 text-green-600" />
                     <span>Compra segura pela Kirvano. Acesso imediato.</span>
+                </div>
+                <div className="flex items-center gap-2">
+                    <Award className="h-4 w-4 text-primary" />
+                    <span>Inclui certificado válido em todo território nacional.</span>
                 </div>
                 <span>Bônus de lançamento disponíveis por tempo limitado.</span>
             </div>
